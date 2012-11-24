@@ -1,0 +1,71 @@
+body {
+  font-size: 0.7em;
+}
+
+.ui-tabs-nav {
+  display:none;
+}
+
+.save {
+  display:none;
+}
+
+.DTTT_container {
+  display:none;
+}
+
+.dataTables_filter {
+  display:none;
+}
+
+.dataTables_info {
+  display:none;
+}
+
+.dataTables_paginate {
+  display: none;
+}
+
+.return {
+  display: none;
+}
+
+.ui-tabs .ui-tabs-panel {
+  padding:0;
+  margin:0;
+}
+
+#result {
+  padding:0;
+  margin:0;
+}
+
+.ui-widget-content {
+  border:none;
+}
+
+.print-header {
+  display:block;
+  width:100%;
+  text-align:center;
+}
+
+.print-header img {
+  vertical-align: middle;
+}
+
+.title-print {
+  display: inline-block;
+  font-size: 2em;
+  margin-left: 20px;
+}
+
+td {
+  border-bottom:1px solid black;
+  border-spacing: 0;
+  text-align: center;
+}
+
+tr:last-child td {
+  border-bottom:0;
+}

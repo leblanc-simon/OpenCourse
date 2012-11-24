@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>OpenCourse</title>
+    <link rel="stylesheet" href="css/hot-sneaks/jquery-ui-1.8.20.custom.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <link rel="stylesheet" href="css/TableTools.css">
+    <link rel="stylesheet" href="css/dataTables.editor.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+  </head>
+  <body>
+    <!--
+     * This program is free software. It comes without any warranty, to
+     * the extent permitted by applicable law. You can redistribute it
+     * and/or modify it under the terms of the Do What The Fuck You Want
+     * To Public License, Version 2, as published by Sam Hocevar. See
+     * http://sam.zoy.org/wtfpl/COPYING for more details.
+    -->
+    <div class="alert">
+      
+    </div>
+    
+    <div id="tabs">
+      <ul>
+        <li><a href="#categorie">Catégories</a></li>
+        <li><a href="#course">Courses</a></li>
+        <li><a href="#participant">Participants</a></li>
+        <li><a href="#prepare-course">Préparer une course</a></li>
+        <li><a href="#launch-course">Lancer une course</a></li>
+        <li><a href="#result">Résultats</a></li>
+        <li><a href="#a-propos">À propos</a></li>
+      </ul>
+      
+      
+      <!-- Partie concernant les catégories -->
+      <div id="categorie">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nom de la catégorie</th>
+              <th>Sexe</th>
+              <th>Âge minimum</th>
+              <th>Âge maximum</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Nom de la catégorie</th>
+              <th>Sexe</th>
+              <th>Âge minimum</th>
+              <th>Âge maximum</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      
+      <!-- Partie concernant la course -->
+      <div id="course">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nom de la course</th>
+              <th>Délai entre les participants</th>
+              <th>Heure de départ</th>
+              <th>Longueur</th>
+              <th>Nombre de participants</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Nom de la course</th>
+              <th>Délai entre les participants</th>
+              <th>Heure de départ</th>
+              <th>Longueur</th>
+              <th>Nombre de participants</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      
+      <!-- Partie concernant les participants -->
+      <div id="participant">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Club</th>
+              <th>Catégorie</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Club</th>
+              <th>Catégorie</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      
+      <!-- Partie permettant de préparer une course -->
+      <div id="prepare-course">
+        <div class="select-course">
+          <label for="select-course">Sélectionnez une course</label>
+          <select id="select-course"></select>
+        </div>
+        
+        <div class="select-participant">
+          
+        </div>
+        
+        <div class="save">
+          <button class="save-course ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">Enregistrer la course</span></button>
+        </div>
+      </div>
+      
+      <!-- Partie permettant de lancer une course -->
+      <div id="launch-course">
+        <div class="select-course">
+          <label for="select-launch-course">Sélectionnez une course</label><br />
+          <select id="select-launch-course"></select>
+        </div>
+        <div class="save">
+          <button class="launch-course ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">Lancer la course</span></button>
+        </div>
+      </div>
+      
+      <!-- Partie permettant d'afficher les résultats -->
+      <div id="result">
+        <div class="print-header">
+          <img src="./images/asla2.png" />
+          <div class="title-print">Arleux 2012</div>
+        </div>
+        
+        <div class="select-course">
+          <label for="select-result-course">Sélectionnez une course</label><br />
+          <select id="select-result-course"></select>
+        </div>
+        
+        <div class="resultat-participant">
+          
+        </div>
+        
+        <div class="save">
+          <button class="save-resultat ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">Enregistrer la course</span></button>
+          <button class="calcul-result ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">Calculer les résultats</span></button>
+        </div>
+        
+      </div>
+      
+      <div id="a-propos">
+        <div class="logo">
+          <img src="./images/logo.png" width="600" heigth="651" />
+        </div>
+        <div class="description">
+          <p>OpenCourse est un logiciel (libre) pour des putains de courses de chiens utilisant les dernières technologie du web 42.0 (IndexedDB).</p>
+          <p>Créé par Simon Leblanc &lt;contact@leblanc-simon.eu&gt; et publié sous licence WTFPL / LPRAB</p>
+        </div>
+        <div class="license">
+          DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE<br />
+          Version 2, December 2004 <br />
+          <br />
+          Copyright (C) 2009 Sam Hocevar <br />
+          <br />
+          Everyone is permitted to copy and distribute verbatim or modified <br />
+          copies of this license document, and changing it is allowed as long <br />
+          as the name is changed. <br />
+          <br />
+          DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE <br />
+          TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION <br />
+          <br />
+          0. You just DO WHAT THE FUCK YOU WANT TO. <br />
+          
+          <hr />
+          
+          LICENCE PUBLIQUE RIEN À BRANLER <br />
+          Version 1, Mars 2009 <br />
+          <br />
+          Copyright (C) 2009 Sam Hocevar <br />
+          14 rue de Plaisance, 75014 Paris, France <br />
+          <br />
+          La copie et la distribution de copies exactes de cette licence sont <br />
+          autorisées, et toute modification est permise à condition de changer <br />
+          le nom de la licence.  <br />
+          <br />
+          CONDITIONS DE COPIE, DISTRIBUTON ET MODIFICATION <br />
+          DE LA LICENCE PUBLIQUE RIEN À BRANLER <br />
+          <br />
+          0. Faites ce que vous voulez, j’en ai RIEN À BRANLER. <br />
+        </div>
+      </div>
+    </div>
+    
+    <!--
+     -
+     - Templates des boites de dialogue
+     -
+    -->
+    <script id="tmpl-alert-error" type="text/x-jquery-tmpl">
+      <div class="ui-widget">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+          <p>
+            <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+            {{html error}}
+          </p>
+        </div>
+      </div>
+    </script>
+    
+    <script id="tmpl-alert-info" type="text/x-jquery-tmpl">
+      <div class="ui-widget">
+        <div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em;">
+          <p>
+            <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+            {{html info}}
+          </p>
+        </div>
+      </div>
+    </script>
+    
+    <script id="tmpl-launch-course" type="text/x-jquery-tmpl">
+      <div id="course-launched-bg" class="DTED_Lightbox_Background" style="display:block; opacity:0.4"></div>
+      <div id="course-launched" class="DTED_Lightbox_Wrapper" style="display: block; opacity: 1; ">
+        <input type="hidden" name="id_course" value="${id_launch_course}">
+        <div class="DTED_Lightbox_Container">
+          <div class="DTED_Lightbox_Content_Wrapper">
+            <div class="DTED_Lightbox_Content" style="height: auto; ">
+              <div class="DTE DTE_Action_Create">
+                <div class="DTE_Processing_Indicator"></div>
+                <div class="DTE_Header">
+                  <div class="DTE_Header_Content">Valider l'arrivée des participants</div>
+                </div>
+                <div class="DTE_Body" style="height:90px;">
+                  <div class="DTE_Body_Content">
+                    <div class="DTE_Form_Info"></div>
+                    <div class="DTE_Form_Content">
+                      <div class="DTE_Field DTE_Field_Type_text DTE_Field_Name_name">
+                        <label class="DTE_Label" for="DTE_Field_name">N° de dossard<div class="DTE_Label_Info"></div></label>
+                        <div class="DTE_Field_Input">
+                          <input id="num-dossard">
+                        </div>
+                      </div>
+                      <div class="DTE_Form_Clear"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="DTE_Footer" style="height:auto; text-align:center;">
+                  <div class="DTE_Footer_Content">
+                    <button id="validate-arrivee-dossard" class="validate-arrivee ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                      <span class="ui-button-text">Valider l'arrivée du dossard</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="validate-arrivee-close" class="DTED_Lightbox_Close"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    
+    <script id="tmpl-add-participant" type="text/x-jquery-tmpl">
+      <div id="add-participant-to-result-bg" class="DTED_Lightbox_Background" style="display:block; opacity:0.4"></div>
+      <div id="add-participant-to-result" class="DTED_Lightbox_Wrapper" style="display: block; opacity: 1; ">
+        <input type="hidden" name="add-course-id" id="add-course-id" value="${course_id}">
+        <div class="DTED_Lightbox_Container">
+          <div class="DTED_Lightbox_Content_Wrapper">
+            <div class="DTED_Lightbox_Content" style="height: auto; ">
+              <div class="DTE DTE_Action_Create">
+                <div class="DTE_Processing_Indicator"></div>
+                <div class="DTE_Header"> 
+                  <div class="DTE_Header_Content">Ajouter un participant oublié dans les résultats</div>
+                </div>
+                <div class="DTE_Body" style="height:120px;">
+                  <div class="DTE_Body_Content">
+                    <div class="DTE_Form_Info"></div>
+                    <div class="DTE_Form_Content">
+                      <div class="DTE_Field DTE_Field_Type_text DTE_Field_Name_name">
+                        <label class="DTE_Label" for="DTE_Field_name">N° de dossard<div class="DTE_Label_Info"></div></label>
+                        <div class="DTE_Field_Input">
+                          <input id="add-dossard">
+                        </div>
+                      </div>
+                      <div class="DTE_Form_Clear"></div>
+                      <div class="DTE_Field DTE_Field_Type_text DTE_Field_Name_name">
+                        <label class="DTE_Label" for="DTE_Field_name">Temps de course<div class="DTE_Label_Info"></div></label>
+                        <div class="DTE_Field_Input">
+                          <input id="add-temps">
+                        </div>
+                      </div>
+                      <div class="DTE_Form_Clear"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="DTE_Footer" style="height:auto; text-align:center;">
+                  <div class="DTE_Footer_Content">
+                    <button id="add-arrivee-dossard" onclick="addParticipantToResultat();" class="add-validate-arrivee ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                      <span class="ui-button-text">Ajouter le participant</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="add-arrivee-close" onclick="closeAddParticipantToResultat();" class="DTED_Lightbox_Close"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    
+    <script id="tmpl-add-penalite" type="text/x-jquery-tmpl">
+      <div id="add-penalite-bg" class="DTED_Lightbox_Background" style="display:block; opacity:0.4"></div>
+      <div id="add-penalite" class="DTED_Lightbox_Wrapper" style="display: block; opacity: 1; ">
+        <input type="hidden" name="penalite-course-id" id="penalite-course-id" value="${course_id}">
+        <div class="DTED_Lightbox_Container">
+          <div class="DTED_Lightbox_Content_Wrapper">
+            <div class="DTED_Lightbox_Content" style="height: auto; ">
+              <div class="DTE DTE_Action_Create">
+                <div class="DTE_Processing_Indicator"></div>
+                <div class="DTE_Header"> 
+                  <div class="DTE_Header_Content">Ajouter une pénalité à un participant</div>
+                </div>
+                <div class="DTE_Body" style="height:120px;">
+                  <div class="DTE_Body_Content">
+                    <div class="DTE_Form_Info"></div>
+                    <div class="DTE_Form_Content">
+                      <div class="DTE_Field DTE_Field_Type_text DTE_Field_Name_name">
+                        <label class="DTE_Label" for="DTE_Field_name">N° de dossard<div class="DTE_Label_Info"></div></label>
+                        <div class="DTE_Field_Input">
+                          <input id="penalite-dossard">
+                        </div>
+                      </div>
+                      <div class="DTE_Form_Clear"></div>
+                      <div class="DTE_Field DTE_Field_Type_text DTE_Field_Name_name">
+                        <label class="DTE_Label" for="DTE_Field_name">Pénalité (en secondes)<div class="DTE_Label_Info"></div></label>
+                        <div class="DTE_Field_Input">
+                          <input id="penalite-temps">
+                        </div>
+                      </div>
+                      <div class="DTE_Form_Clear"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="DTE_Footer" style="height:auto; text-align:center;">
+                  <div class="DTE_Footer_Content">
+                    <button id="penalite-dossard" onclick="addPenalite();" class="add-penalite ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                      <span class="ui-button-text">Ajouter la pénalité</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="add-arrivee-close" onclick="closeAddPenalite();" class="DTED_Lightbox_Close"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    
+    <script id="tmpl-print-course" type="text/x-jquery-tmpl">
+      <table style="width:100%;page-break-after:always;text-align:center">
+        <thead>
+          <tr>
+            <th colspan="6">
+              <h2>${course.name}</h2>
+            </th>
+          </tr>
+          <tr>
+            <th>Dossard</th>
+            <th>Participant</th>
+            <th>Club</th>
+            <th>Catégorie</th>
+            <th>Chien</th>
+            <th>Heure de départ</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{each(i, participant) participants}}
+          <tr>
+            <td>${participant.dossard}</td>
+            <td>${participant.lastname} ${participant.firstname}</td>
+            <td>${participant.club}</td>
+            <td>${participant.categorie.name}</td>
+            <td>${participant.chien}</td>
+            <td>${getTimeToStart(course, i)}</td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </script>
+    
+    <!--
+     -
+     - Scripts utilisés pour le programme
+     -
+    -->
+    <script src="js/vendors/jquery/jquery-1.7.2.min.js"></script>
+    <script src="js/vendors/jquery/jquery-ui-1.8.20.custom.min.js"></script>
+    <script src="js/vendors/jquery/jquery.tmpl.min.js"></script>
+    <script src="js/vendors/datatables/jquery.dataTables.js"></script>
+    <script src="js/vendors/datatables/ZeroClipboard.js"></script>
+    <script src="js/vendors/datatables/TableTools.js"></script>
+    <script src="js/vendors/datatables/dataTables.editor.js"></script>
+    <script src="js/vendors/indexedDBClosure/indexedDBClosure.js"></script>
+    <script src="js/basic-functions.js"></script>
+    <script src="js/tables.js"></script>
+    <script src="js/manage_course.js"></script>
+    <script src="js/functions.js"></script>
+    
+    <script src="js/tabs/categorie.js"></script>
+    <script src="js/tabs/course.js"></script>
+    <script src="js/tabs/participant.js"></script>
+    <script src="js/tabs/prepare-course.js"></script>
+    <script src="js/tabs/launch-course.js"></script>
+    <script src="js/tabs/resultat.js"></script>
+  </body>
+</html>

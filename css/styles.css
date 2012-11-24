@@ -1,0 +1,96 @@
+.margin-30 {
+  margin-bottom:30px;
+}
+
+.select-participant {
+  margin-bottom:40px;
+}
+
+#prepare-course .save {
+  position:relative;
+  clear:both;
+  height:50px;
+}
+
+#result .save {
+  position:relative;
+  clear:both;
+  height:50px;
+}
+
+.select-course {
+  position:relative;
+}
+
+.save-course {
+  position:absolute;
+  right:0;
+}
+
+.calcul-result {
+  position:absolute;
+  right:250px;
+}
+
+.save-resultat {
+  position:absolute;
+  right:0;
+}
+
+.col-selection {
+  width:80px;
+}
+
+.alert {
+  position:fixed;
+  top:0;
+  display: block;
+  width: 80%;
+  z-index: 100;
+  margin-left: 10%;
+  top:0.3em;
+}
+
+#launch-course {
+  text-align:center;
+}
+
+#a-propos {
+  text-align: center;
+}
+
+#a-propos .description {
+  margin-top:30px;
+  font-size: 1.5em;
+}
+
+.license {
+  margin-top:30px;
+  font-family: monospace;
+}
+
+.license hr {
+  margin-top:30px;
+  margin-bottom:30px;
+  width:30%;
+}
+
+.print-header {
+  display: none;
+}
+
+#result table input[type="text"] {
+  width: 70px;
+}
+
+/**
+ * Impression des courses
+ */
+.printing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+}
