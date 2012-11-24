@@ -1,6 +1,6 @@
 // gestion de la base de données "course"
 var database = new indexedDBClosure({
-  name: "open-course3",
+  name: "open-course",
   version: 1,
   tables: [
     {name : 'course',       key : 'DT_RowId'},
