@@ -13,6 +13,8 @@ var indexedDBClosure = function (options)
   window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.mozIDBTransaction || window.msIDBTransaction;
   window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.mozIDBKeyRange || window.msIDBKeyRange;
   
+  window.IDBTransaction.READ_WRITE = (window.IDBTransaction && 'READ_WRITE' in window.IDBTransaction) ? window.IDBTransaction.READ_WRITE : 'readwrite';
+  
   // management options
   if (options) {
     if (options.name) {
