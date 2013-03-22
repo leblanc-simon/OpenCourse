@@ -28,8 +28,9 @@
         <li><a href="#course">Courses</a></li>
         <li><a href="#participant">Participants</a></li>
         <li><a href="#prepare-course">Préparer une course</a></li>
-        <li><a href="#launch-course">Lancer une course</a></li>
-        <li><a href="#result">Résultats</a></li>
+        <!--<li><a href="#launch-course">Lancer une course</a></li>
+        <li><a href="#result">Résultats</a></li>-->
+        <li><a href="#result-insert">Entrer les résultats</a></li>
         <li><a href="#a-propos">À propos</a></li>
       </ul>
       
@@ -148,6 +149,29 @@
         <div class="save">
           <button class="save-resultat ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">Enregistrer la course</span></button>
           <button class="calcul-result ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">Calculer les résultats</span></button>
+        </div>
+        
+      </div>
+      
+      <!-- Partie permettant d'entrer et afficher les résultats -->
+      <div id="result-insert">
+        <div class="print-header">
+          <img src="./images/asla2.png" />
+          <div class="title-print">Arleux 2012</div>
+        </div>
+        
+        <div class="select-course">
+          <label for="select-result-insert-course">Sélectionnez une course</label><br />
+          <select id="select-result-insert-course"></select>
+        </div>
+        
+        <div class="resultat-insert-participant">
+          
+        </div>
+        
+        <div class="save">
+          <button class="save-insert-resultat ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">Enregistrer la course</span></button>
+          <button class="calcul-insert-result ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">Calculer les résultats</span></button>
         </div>
         
       </div>
@@ -415,5 +439,6 @@
     <script src="js/tabs/prepare-course.js"></script>
     <script src="js/tabs/launch-course.js"></script>
     <script src="js/tabs/resultat.js"></script>
+    <script src="js/tabs/resultat-insert.js"></script>
   </body>
 </html>

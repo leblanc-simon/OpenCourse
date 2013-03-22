@@ -114,6 +114,37 @@ function markAsArrive(course_id, dossard, force_fin)
 }
 
 
+function saveResultat(resultat_id, temps)
+{
+  if (temps == '' || !temps.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)) {
+    showError('Le temps doit être rempli sous la forme 00:00:00 !');
+    return;
+  }
+  
+  temps = temps.split(':');
+  var temps_in_ms = (parseInt(temps[0] * 60 * 60) + parseInt(temps[1] * 60) + parseInt(temps[2])) * 1000;
+  
+  database.get(
+    ['resultat'],
+    resultat_id,
+    function(resultat) {
+      var participant = resultat.participant;
+      var fin = participant.debutdebut + temps_in_ms;
+      
+      var temps_to_save = fin - participant.debut;
+      var str_temps = msToHour(temps_to_save);
+      
+      resultat.temps        = temps_to_save;
+      resultat.temps_str    = msToHour(temps_to_save + (resultat.penalite * 1000));
+      
+      database.update(['resultat'], resultat.DT_RowId, resultat);
+    },
+    function() {
+      
+    });
+}
+
+
 /**
  * Complète les résultats d'une course
  *
@@ -307,6 +338,14 @@ function closeAddParticipantToResultat()
 function showAddPenalite()
 {
   var course_id = $('#select-result-course').find('option:selected').val();
+  var html = $('#tmpl-add-penalite').tmpl({ course_id: course_id });
+  $('body').append(html);
+  $('#penalite-dossard').focus();
+}
+
+function showAddPenaliteInsert()
+{
+  var course_id = $('#select-result-insert-course').find('option:selected').val();
   var html = $('#tmpl-add-penalite').tmpl({ course_id: course_id });
   $('body').append(html);
   $('#penalite-dossard').focus();

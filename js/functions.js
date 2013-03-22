@@ -158,6 +158,103 @@ function launchCourse(course)
 }
 
 
+function buildFakeResultat(course)
+{
+  // Heure de départ
+  var depart = new Date().getTime();
+  
+  // Classement scratch
+  ordre_arrivee[course.DT_RowId] = 1;
+  
+  // Délai entre le participants
+  try {
+    var delai = parseInt(course.time);
+  } catch (e) {
+    showError('Une erreur s\'est produite lors du lancement de la course : impossible de récupérer le délai');
+    return false;
+  }
+  
+  // Récupération des participants
+  var participants = course.participants;
+  
+  // Tri des participants par numéro de dossard
+  participants.sort(function(a, b) {
+    try {
+      dossard_a = parseInt(a.dossard);
+      dossard_b = parseInt(b.dossard);
+    } catch (e) {
+      return -1;
+    }
+    
+    if (dossard_a < dossard_b) {
+      return -1;
+    } else if (dossard_a > dossard_b) {
+      return 1
+    } else {
+      return 0;
+    }
+  });
+  
+  // On indique l'heure de départ pour chaque participant
+  var participants_to_save = [];
+  for (var i = 0; i < participants.length; i++) {
+    var tmp_depart = depart + (i * delai * 1000);
+    
+    var tmp_participant = {
+      id        : participants[i].id,
+      lastname  : participants[i].lastname,
+      firstname : participants[i].firstname,
+      club      : participants[i].club,
+      categorie : participants[i].categorie,
+      chien     : participants[i].chien,
+      dossard   : participants[i].dossard,
+      debut     : tmp_depart,
+      debutdebut: depart // variable correspondant au début de la course mais pas au départ du participant (ça n'a rien à foutre là, mais c'est plus simple à gérer)
+    };
+    
+    participants_to_save.push(tmp_participant);
+  
+    // On créer les résultats fictif
+    var resultat = {
+      DT_RowId            : 'row_' + uniqid(),
+      participant         : tmp_participant,
+      dossard             : tmp_participant.dossard,
+      course              : course,
+      course_id           : course.DT_RowId,
+      ordre_arrivee       : 0,
+      classement_scratch  : null,
+      classement_categorie: null,
+      classement_sex      : null,
+      debut               : null,
+      fin                 : null,
+      temps               : null,
+      temps_str           : null,
+      penalite            : 0
+    };
+    
+    database.add(['resultat'], resultat);
+  }
+  
+  // On met à jour la course avec les temps de départ
+  console.log(participants_to_save);
+  database.update(
+    ['course'],
+    course.DT_RowId,
+    {
+      DT_RowId        : course.DT_RowId,
+      name            : course.name,
+      width           : course.width, 
+      start           : course.start, 
+      time            : course.time,
+      nb_participants : participants_to_save.length,
+      participants    : participants_to_save
+    }
+  );
+  
+  return true;
+}
+
+
 /**
  * Enregistre l'arrivée d'un participant
  */

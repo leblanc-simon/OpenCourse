@@ -12,7 +12,7 @@
   height:50px;
 }
 
-#result .save {
+#result .save, #result-insert .save {
   position:relative;
   clear:both;
   height:50px;
@@ -27,12 +27,12 @@
   right:0;
 }
 
-.calcul-result {
+.calcul-result, .calcul-result-insert {
   position:absolute;
   right:250px;
 }
 
-.save-resultat {
+.save-resultat, .save-resultat-insert {
   position:absolute;
   right:0;
 }
@@ -81,6 +81,14 @@
 
 #result table input[type="text"] {
   width: 70px;
+}
+
+#result-insert table input[type="text"] {
+  width: 80px;
+}
+
+#launch-course, #result {
+  display: none;
 }
 
 /**
