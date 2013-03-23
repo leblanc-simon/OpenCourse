@@ -148,6 +148,15 @@ $(document).ready(function(){
       
       prepare_course_edit = false;
       
+      // On supprime les anciens résultats
+      database.search(
+        ['resultat'],
+        'course_id',
+        $('#prepare-course .select-participant table').attr('id').replace('table_', ''),
+        function(resultat) {
+          database.remove(['resultat'], resultat.DT_RowId);
+      });
+      
       $('#prepare-course .select-participant input:text[name^=dossard][value!=""]').each(function(){
         var id = $(this).attr('name').replace(/dossard\[(.*)\]/, "$1");
         var chien = $('input[name="chien[' + id + ']"]').val();
