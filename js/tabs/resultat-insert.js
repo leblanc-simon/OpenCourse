@@ -52,6 +52,9 @@ $(document).ready(function(){
                       'label' : 'Pénalité',
                       'name'  : 'penalite'
                     }, {
+                      'label' : 'Sexe',
+                      'name'  : 'sexe'
+                    }, {
                       'label' : 'Catégorie',
                       'name'  : 'categorie'
                     }, {
@@ -92,7 +95,7 @@ $(document).ready(function(){
         // préparation de la liste pour les participants
         var participantId = 'result_insert_' + course.DT_RowId;
         var participantHtml = '';
-        var participantHead = '<tr><th>Dossard</th><th>Participant</th><th>Club</th><th>Chien</th><th>Temps</th><th>Pénalité</th><th>Catégorie</th><th>Clt scratch</th><th>Clt par catégorie</th><th>Clt par sexe</th><th>Moyenne</th></tr>';
+        var participantHead = '<tr><th>Dossard</th><th>Participant</th><th>Club</th><th>Chien</th><th>Temps</th><th>Pénalité</th><th>Sexe</th><th>Catégorie</th><th>Clt scratch</th><th>Clt par catégorie</th><th>Clt par sexe</th><th>Moyenne</th></tr>';
         participantHtml = '<table id="' + participantId + '"><thead>' + participantHead + '</thead><tfoot>' + participantHead + '</tfoot>';
         $('#result-insert .resultat-insert-participant').html(participantHtml);
         
@@ -112,6 +115,7 @@ $(document).ready(function(){
                 chien : 'N/A',
                 temps : msToHour(resultat.fin),
                 penalite : 'N/A',
+                sexe : 'N/A',
                 categorie : 'N/A',
                 classement_scratch   : 'N/A',
                 classement_categorie : 'N/A',
@@ -127,6 +131,7 @@ $(document).ready(function(){
                 chien : resultat.participant.chien,
                 temps : '<input type="text" name="temps[' + resultat.DT_RowId + ']" data-resultat-id="' + resultat.DT_RowId + '" value="' + resultat.temps_str + '">',
                 penalite : resultat.penalite,
+                sexe : resultat.participant.categorie.sex,
                 categorie : resultat.participant.categorie.name,
                 classement_scratch: resultat.classement_scratch,
                 classement_categorie : resultat.classement_categorie,
@@ -170,6 +175,8 @@ $(document).ready(function(){
                             "mDataProp": "temps"
                             }, {
                             "mDataProp": "penalite"
+                            }, {
+                            "mDataProp": "sexe"
                             }, {
                             "mDataProp": "categorie"
                             }, {
