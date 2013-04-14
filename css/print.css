@@ -40,6 +40,10 @@ body {
   margin:0;
 }
 
+.select-course {
+  display: none;
+}
+
 .ui-widget-content {
   border:none;
 }

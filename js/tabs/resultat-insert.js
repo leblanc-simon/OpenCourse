@@ -202,6 +202,11 @@ $(document).ready(function(){
                                 "editor": editor_resultat,
                                 "sButtonText": "Supprimer",
                                 "formTitle": "Supprimer un résultat"
+                              },
+                              {
+                                "sExtends": "text",
+                                "sButtonText": "Imprimer",
+                                "fnClick": printResultInsert
                               }
                             ]
                         }

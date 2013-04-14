@@ -475,3 +475,15 @@ function printPreparationCourse()
     $('body').append(html);
   });
 }
+
+
+/**
+ * Impression de la course
+ */
+function printResultInsert()
+{
+  var value = $('#select-result-insert-course option:selected').html();
+  $('.title-print').html(value);
+  
+  window.print();
+}
