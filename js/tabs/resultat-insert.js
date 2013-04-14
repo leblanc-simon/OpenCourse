@@ -207,6 +207,11 @@ $(document).ready(function(){
                                 "sExtends": "text",
                                 "sButtonText": "Imprimer",
                                 "fnClick": printResultInsert
+                              },
+                              {
+                                "sExtends": "text",
+                                "sButtonText": "Exporter en CSV",
+                                "fnClick": exportResultInsert
                               }
                             ]
                         }

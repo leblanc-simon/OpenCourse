@@ -487,3 +487,73 @@ function printResultInsert()
   
   window.print();
 }
+
+
+function exportResultInsert()
+{
+  function helper_format(data)
+  {
+    var field;
+    
+    if ($(data).html().match(/<input/)) {
+      field = '"' + $(data).find('input').val().replace(/"/g, '""') + '"';
+    } else if ($(data).text().match(/^[0-9]+$/)) {
+      field = parseInt($(data).text());
+    } else if ($(data).text() == 'Chien' && data.tagName.toLowerCase() == 'th') {
+      field = ['Chien', 'Race'];
+    } else if ($(data).text().match(/\//)) {
+      field = $(data).text().split('/');
+    } else {
+      field = '"' + $(data).text().replace(/"/g, '""') + '"';
+    }
+    
+    if (field.constructor.toString().indexOf("Array") > -1) {
+      for (var i = 0; i < field.length; i++) {
+        field[i] = '"' + $.trim(field[i].replace(/"/g, '""')) + '"';
+      }
+    }
+    
+    return field;
+  }
+  
+  var csv_datas = [];
+  var csv_line = '';
+  $('.resultat-insert-participant table thead th').each(function(){
+    if (csv_line != '') {
+      csv_line += ';';
+    }
+    var csv_field = helper_format(this);
+    
+    if (csv_field.constructor.toString().indexOf("Array") > -1) {
+      csv_line += csv_field.join(';');
+    } else {
+      csv_line += csv_field;
+    }
+  });
+  
+  csv_datas.push(csv_line);
+  
+  $('.resultat-insert-participant table tbody tr').each(function(){
+    csv_line = '';
+    
+    $(this).find('td').each(function(){
+      if (csv_line != '') {
+        csv_line += ';';
+      }
+      var csv_field = helper_format(this);
+      
+      if (csv_field.constructor.toString().indexOf("Array") > -1) {
+        csv_line += csv_field.join(';');
+      } else {
+        csv_line += csv_field;
+      }
+    });
+    
+    csv_datas.push(csv_line);
+  });
+  
+  var csv_output = csv_datas.join("\n");
+  var uri = 'data:text/csv;charset=UTF-8,' + encodeURIComponent(csv_output);
+  
+  window.location.href = uri;
+}
