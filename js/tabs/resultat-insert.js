@@ -40,6 +40,9 @@ $(document).ready(function(){
                       'label' : 'Participant',
                       'name'  : 'participant'
                     }, {
+                      'label' : 'N° de licence',
+                      'name'  : 'license'
+                    }, {
                       'label' : 'Club',
                       'name'  : 'club'
                     }, {
@@ -95,7 +98,7 @@ $(document).ready(function(){
         // préparation de la liste pour les participants
         var participantId = 'result_insert_' + course.DT_RowId;
         var participantHtml = '';
-        var participantHead = '<tr><th>Dossard</th><th>Participant</th><th>Club</th><th>Chien</th><th>Temps</th><th>Pénalité</th><th>Sexe</th><th>Catégorie</th><th>Clt scratch</th><th>Clt par catégorie</th><th>Clt par sexe</th><th>Moyenne</th></tr>';
+        var participantHead = '<tr><th>Dossard</th><th>Participant</th><th>N° de licence</th><th>Club</th><th>Chien</th><th>Temps</th><th>Pénalité</th><th>Sexe</th><th>Catégorie</th><th>Clt scratch</th><th>Clt par catégorie</th><th>Clt par sexe</th><th>Moyenne</th></tr>';
         participantHtml = '<table id="' + participantId + '"><thead>' + participantHead + '</thead><tfoot>' + participantHead + '</tfoot>';
         $('#result-insert .resultat-insert-participant').html(participantHtml);
         
@@ -111,6 +114,7 @@ $(document).ready(function(){
                 DT_RowId: resultat.DT_RowId,
                 dossard: '<input type="text" name="resultat[' + resultat.DT_RowId + ']" value="">',
                 participant: 'N/A',
+                license: 'N/A',
                 club : 'N/A',
                 chien : 'N/A',
                 temps : msToHour(resultat.fin),
@@ -127,6 +131,7 @@ $(document).ready(function(){
                 DT_RowId: resultat.DT_RowId,
                 dossard: resultat.dossard,
                 participant: resultat.participant.lastname + ' ' + resultat.participant.firstname,
+                license: resultat.participant.license,
                 club : resultat.participant.club,
                 chien : resultat.participant.chien,
                 temps : '<input type="text" name="temps[' + resultat.DT_RowId + ']" data-resultat-id="' + resultat.DT_RowId + '" value="' + resultat.temps_str + '">',
@@ -167,6 +172,8 @@ $(document).ready(function(){
                             "mDataProp": "dossard"
                             }, {
                             "mDataProp": "participant"
+                            }, {
+                            "mDataProp": "license"
                             }, {
                             "mDataProp": "club"
                             }, {

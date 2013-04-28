@@ -501,7 +501,7 @@ function exportResultInsert()
       field = parseInt($(data).text());
     } else if ($(data).text() == 'Chien' && data.tagName.toLowerCase() == 'th') {
       field = ['Chien', 'Race'];
-    } else if ($(data).text().match(/\//)) {
+    } else if ($(data).text().match(/\//) && !$(data).text().match(/^[0-9\.]+Km\/H$/)) {
       field = $(data).text().split('/');
     } else {
       field = '"' + $(data).text().replace(/"/g, '""') + '"';

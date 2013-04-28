@@ -52,7 +52,7 @@ $(document).ready(function(){
         // préparation de la liste pour les participants
         var participantId = 'table_' + course.DT_RowId;
         var participantHtml = '';
-        var participantHead = '<tr><th>Participant</th><th>Catégorie</th><th>Dossard</th><th>Chien</th></tr>';
+        var participantHead = '<tr><th>Participant</th><th>N° de licence</th><th>Catégorie</th><th>Dossard</th><th>Chien</th></tr>';
         participantHtml = '<table id="' + participantId + '"><thead>' + participantHead + '</thead><tfoot>' + participantHead + '</tfoot>';
         $('.select-participant').html(participantHtml);
         
@@ -74,6 +74,7 @@ $(document).ready(function(){
             
             participants.push({
               participant : datas[i].lastname + ' ' + datas[i].firstname,
+              license     : datas[i].license,
               categorie   : datas[i].categorie,
               dossard     : '<input type="text" value="' + dossard + '" name="dossard[' + datas[i].DT_RowId + ']">',
               chien       : '<input type="text" value="' + chien + '" name="chien[' + datas[i].DT_RowId + ']">'
@@ -104,6 +105,8 @@ $(document).ready(function(){
             },
             "aoColumns": [{
                           "mDataProp": "participant"
+                          }, {
+                          "mDataProp": "license"
                           }, {
                           "mDataProp": "categorie"
                           }, {
@@ -174,6 +177,7 @@ $(document).ready(function(){
                 id        : participant.DT_RowId,
                 lastname  : participant.lastname,
                 firstname : participant.firstname,
+                license   : participant.license,
                 club      : participant.club,
                 categorie : categorie,
                 chien     : chien,

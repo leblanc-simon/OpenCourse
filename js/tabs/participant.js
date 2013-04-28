@@ -17,6 +17,7 @@ $(document).ready(function(){
         fields: [
           {'label': 'Nom', 'name': 'lastname'},
           {'label': 'Prénom', 'name': 'firstname'},
+          {'label': 'N° de licence', 'name': 'license'},
           {'label': 'Club', 'name': 'club'},
           {'label': 'Catégorie', 'name': 'categorie', 'type': 'select', 'ipOpts': cat_datas}
         ],
@@ -25,6 +26,7 @@ $(document).ready(function(){
             DT_RowId  : id,
             lastname  : data.lastname,
             firstname : data.firstname,
+            license   : data.license,
             club      : data.club,
             categorie : data.categorie
           };
@@ -34,6 +36,7 @@ $(document).ready(function(){
             DT_RowId  : id,
             lastname  : data.lastname,
             firstname : data.firstname,
+            license   : data.license,
             club      : data.club,
             categorie : data.categorie
           };
